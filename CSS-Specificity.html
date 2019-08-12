@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSS-Specificity</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/mystyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .fixed-left {
+            position: fixed;
+            top: 0%;
+            right: 500;
+            left: 0;
+            z-index: 1030;
+            width: 10%;
+        }
+        
+        h1 {
+            font-weight: 600;
+            color: white;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <div class="bg">
+        <div class="container">
+            <div class="w3-card-4" id="section0">
+                <header class="w3-container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb " style="background-color: #007169">
+                            <li class="breadcrumb-item">
+                                <button type="button" class="btn btn-default Disabled" aria-label="Left Align">
+                                            <a> <span class="glyphicon glyphicon-user" aria-hidden="true">
+                                                    Parinya's Page</span></a></button>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <button type="button" class="btn btn-default" aria-label="Left Align">
+                                            <a href="./index.html"> <span class="glyphicon glyphicon-home" aria-hidden="true">
+                                                    Home</span></a></button>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <button type="button" class="btn btn-default" aria-label="Left Align">
+                                            <a href="./CSS-Specificity.html"> <span class="glyphicon glyphicon-book"
+                                                    aria-hidden="true">
+                                                    CSS-Specificity</span></a></button>
+                            </li>
+                        </ol>
+                    </nav>
+                </header>
+            </div>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark  fixed-left">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section0"> <span class="glyphicon glyphicon-arrow-up" aria-hidden="true">&nbsp</span>TOP</a>
+                        <a class="nav-link" href="#section1">CSS-Specificity คืออะไร?</a>
+                        <a class="nav-link" href="#section2">วิธีคำนวณ ค่า CSS-Specificity</a>
+                        <a class="nav-link" href="#section4">สรุปเรื่อง CSS SPECIFICITY</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div id="section1" class="container-fluid" style="padding-top:70px;padding-bottom:70px; background-color: #228751">
+                <hr width="40% " style="margin-left: 0% ; border: 2px solid black; ">
+                <h1>CSS-Specificity คืออะไร?</h1>
+                <hr width="40% " style="margin-left: 0% ; border: 2px solid black; ">
+                <div class="con con2">
+                    <p><b>CSS Specificity</b> เป็นการเลือกใช้ CSS Selector ที่มีค่าความสำคัญมากกว่า มาใช้กับ Element บนหน้าเว็บไซต์ </p>
+                    <p>ทำให้ CSS Specificity เป็นตัวที่บ่งบอกค่าบางอย่าง ที่จะทำให้ browser ว่าต้องเลือกใช้ Style ตัวไหน</p>
+                    <p>ภาษา CSS เหมือนภาษาโปรแกรมอื่น ๆ ที่อ่านโค้ดจาก บน – ล่าง ถ้าเขียน CSS Selector ซ้ำกัน 2 อัน อันบนจะถูกโดนทับ </p>
+                    <p>และ อันล่างจะถูกนำไปใช้ นั่นแสดงว่า โค้ดจะนำส่วนด้านล่าง ซึ่งใหม่กว่านำไปใช้นั่นเอง</p>
+                    <p>แต่ความพิเศษของ CSS คือ Selector ที่แตกต่างกัน จะมี ค่าความสำคัญ ที่ไม่เหมือนกัน ทำให้เมื่อ ค่าความสำคัญนี้ต่างกัน </p>
+                    <p>ลำดับก่อนหลังจึงไม่สำคัญโดยทันที</p>
+                </div>
+            </div>
+            <div id="section2" class="container-fluid " style="padding-top:70px;padding-bottom:70px;background-color: #62DA9A">
+                <hr width="47% " style="margin-left: 0% ; border: 2px solid black; ">
+                <h1>วิธีคำนวณ ค่า CSS-Specificity</h1>
+                <hr width="47% " style="margin-left: 0% ; border: 2px solid black; ">
+                <div class="con con2">
+                    <p>เราสามารถคิดค่าความสำคัญของ Selector ได้โดย</p>
+                    <ol>
+                        <li>
+                            การเขียน CSS แบบ internal style sheet มี ค่าเท่ากับ 100 level
+                        </li>
+                        <li>
+                            การเขียน CSS แบบ ใส่ ID มี ค่าเท่ากับ 5 level
+                        </li>
+                        <li>
+                            การเขียน CSS แบบ ใส่ Class มี ค่าเท่ากับ 2 level
+                        </li>
+                        <li>
+                            การเขียน CSS แบบ ใส่ Element มี ค่าเท่ากับ 1 level
+                        </li>
+                    </ol>
+                    <p>สำหรับ !important ที่ไม่ได้อยู่ในข้อ 1 – 4 ด้านบน ถ้าใส่เข้าไปจะเป็นการบังคับใช้ CSS นั้นทันที โดยไม่ต้องทำการตรวจสอบ ค่าความสำคัญ</p>
+                </div>
+            </div>
+
+            <div id="section4" class="container-fluid  " style="padding-top:70px;padding-bottom:70px;background-color: #047136">
+                <hr width="43% " style="margin-left: 0% ; border: 2px solid black; ">
+                <h1>สรุปเรื่อง CSS SPECIFICITY</h1>
+                <hr width="43% " style="margin-left: 0% ; border: 2px solid black; ">
+                <div class="con con2">
+                    <p>อย่าใช้ ID ถ้าไม่จำเป็นเพราะ มันเป็นการทำให้ เว็บเราโหลดหนักขึ้นและ ถ้าอาจทำให้ Selector โดนทับโดยไม่จำเป็น</p>
+                    <p>แนะใช้ class ดีที่สุดเพราะจัดการได้ง่ายกว่ามาก</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer class="w3-container " style="background-color: #A3EBC4 ;">
+        <div class="row content-foot ">
+            <div class="col-sm-5 ">Web site made by Parinya</div>
+            <div class="col-sm-7 ">
+                <p style="margin-left: 80% "> contact :
+                    <a href="http://www.faceebook.com "><i class="fa fa-facebook-official " style="font-size:25px "></i></a>
+                    <a href="https://www.instagram.com/lparinyal/ "><i class="fa fa-instagram " style="font-size:25px "></i></a>
+                    <a href="https://www.google.com/ "><i class="fa fa-google " style="font-size:25px "></i></a></p>
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+</html>
